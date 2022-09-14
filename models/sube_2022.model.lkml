@@ -25,6 +25,13 @@ persist_with: sube_2022_default_datagroup
 # Typically, join parameters require that you define the join type, join relationship, and a sql_on clause.
 # Each joined view also needs to define a primary key.
 
-explore: usos_2022 {}
+explore: usos_2022 {
+  join: usuarios_2022 {
+    sql_on: ${usos_2022.dia_transporte_date} = ${usuarios_2022.dia_transporte_date} ;;
+    relationship: many_to_one
+    type: left_outer
+  }
+}
 
-explore: usuarios_2022 {}
+explore: usuarios_2022 {
+}
